@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Login Fragment -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.vu.androidbasicapp.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment"/>
+    </fragment>
+
+    <!-- Home Screen Fragment -->
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.vu.androidbasicapp.home.ui.HomeScreenFragment"
+        android:label="Home Screen"
+        tools:layout="@layout/fragment_home_screen">
+        <argument
+            android:name="keypass"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+
+    <!-- Dashboard Fragment -->
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.vu.androidbasicapp.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <argument
+            android:name="detail"
+            app:argType="com.vu.androidbasicapp.home.data.ResponseItem" />
+    </fragment>
+
+    <!-- Profile Fragment -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.vu.androidbasicapp.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
